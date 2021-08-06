@@ -10,7 +10,7 @@
  # [ ] Case 3
 >   **GIVEN** a parking lot with two parked cars, and a two parking tickets  
     **WHEN** fetch the car twice
-    **THEN** return the right car with each ticker
+    **THEN** return the right car with each ticket
  # [ ] Case 4
 >   **GIVEN** a parking lot, and a wring parking ticket  
     **WHEN** fetch the car
