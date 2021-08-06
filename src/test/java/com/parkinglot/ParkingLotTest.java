@@ -11,13 +11,12 @@ class ParkingLotTest {
         //given
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
-        ParkingTicket parkingTicket = parkingLot.park(car);
 
         //when
-        Car actualCar = parkingLot.fetch(parkingTicket);
+        ParkingTicket parkingTicket = parkingLot.park(car);
 
         //then
-        assertEquals(car, actualCar);
+        assertNotNull(parkingTicket);
     }
 
 }
