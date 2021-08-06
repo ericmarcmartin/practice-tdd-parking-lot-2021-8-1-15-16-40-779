@@ -21,5 +21,5 @@
     **THEN** return nothing
 # [ ] Case 6
 >   **GIVEN** a parking lot without any position, and a car
-    **WHEN** fetch the car
+    **WHEN** park the car
     **THEN** return nothing
