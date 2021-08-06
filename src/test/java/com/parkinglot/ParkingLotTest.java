@@ -23,8 +23,8 @@ class ParkingLotTest {
     public void should_return_parked_car_when_fetch_the_car_given_parking_lot_with_parked_car_and_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        ParkingTicket parkingTicket = new ParkingTicket();
         Car car = new Car();
+        ParkingTicket parkingTicket = parkingLot.park(car);
 
         //when
         Car actualCar = parkingLot.fetch(parkingTicket);
