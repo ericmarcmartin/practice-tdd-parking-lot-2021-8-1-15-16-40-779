@@ -1,5 +1,6 @@
 package com;
 
+import com.exceptions.NoPositionAvailableException;
 import com.exceptions.UnrecognizedParkingTicketException;
 import com.parkinglot.Car;
 import com.parkinglot.ParkingBoy;
@@ -59,7 +60,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    public void should_return_nothing_when_fetch_the_car_given_parking_lot_and_a_standard_parking_boy_and_a_wrong_parking_ticket() {
+    public void should_return_nothing_with_error_message_when_fetch_the_car_given_parking_lot_and_a_standard_parking_boy_and_a_wrong_parking_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
@@ -73,7 +74,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    public void should_return_nothing_when_fetch_the_car_given_parking_lot_and_standard_parking_boy_and_a_used_parking_ticket() {
+    public void should_return_nothing_with_error_message_when_fetch_the_car_given_parking_lot_and_standard_parking_boy_and_a_used_parking_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
@@ -88,4 +89,17 @@ class ParkingBoyTest {
 
     }
 
+    @Test
+    public void should_return_nothing_with_error_message_when_park_the_car_given_parking_lot_without_any_position_and_a_parking_boy_and_a_car(){
+        //given
+        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        parkingLot.park(new Car());
+        Car car = new Car();
+
+        //when & then
+        Exception exception = assertThrows(NoPositionAvailableException.class, () ->
+                parkingBoy.park(car));
+        assertEquals("No available position.", exception.getMessage());
+    }
 }
