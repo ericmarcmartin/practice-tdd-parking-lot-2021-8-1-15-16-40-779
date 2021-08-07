@@ -117,7 +117,7 @@ class ParkingBoyTest {
 
         //then
         assertNotNull(parkingTicket);
-        assertEquals(parkingLotList.get(0).fetch(parkingTicket), car);
+        assertEquals(car, parkingLotList.get(0).fetch(parkingTicket));
     }
 
     @Test
@@ -135,7 +135,7 @@ class ParkingBoyTest {
 
         //then
         assertNotNull(parkingTicket);
-        assertEquals(parkingLotList.get(1).fetch(parkingTicket), car);
+        assertEquals(car, parkingLotList.get(1).fetch(parkingTicket));
     }
 
     @Test
