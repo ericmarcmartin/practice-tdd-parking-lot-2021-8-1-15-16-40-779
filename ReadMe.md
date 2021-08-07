@@ -87,6 +87,11 @@
     **WHEN** fetch the car twice
     **THEN** return right car with each ticket
 
+ # [x] Case 3
+>   **GIVEN** a standard parking boy, who manage two parking lots, and unrecognized parking ticket
+    **WHEN** fetch the car twice
+    **THEN** return nothing with error message "Unrecognized parking ticket."
+
 
 
 
