@@ -71,3 +71,11 @@
     **WHEN** park the car  
     **THEN** return nothing with error message "Unrecognized parking ticket."
 
+# Story 4
+# [x] Case 1
+>   **GIVEN** a standard parking boy, who manage two parking lots, both with available position, and a car  
+    **WHEN** park the car  
+    **THEN** return car parked to the first lot
+
+
+
