@@ -89,7 +89,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    public void should_return_nothing_with_error_message_when_park_the_car_given_parking_lot_without_any_position_and_a_parking_boy_and_a_car(){
+    public void should_return_nothing_with_error_message_when_park_the_car_given_parking_lot_without_any_position_and_a_parking_boy_and_a_car() {
         //given
         ParkingLot parkingLot = new ParkingLot(1);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
@@ -105,18 +105,18 @@ class ParkingBoyTest {
     @Test
     public void should_return_car_parked_to_the_first_lot_when_park_the_car_given_a_standard_parking_boy_with_two_parking_lots_both_available_position_and_a_parking_lot_and_car() {
         //given
-        Car car = new Car();
         List<ParkingLot> parkingLotList = Arrays.asList(
-                new ParkingLot(2,0),
-                new ParkingLot(2,0)
+                new ParkingLot(2, 2),
+                new ParkingLot(0, 2)
         );
-
+        Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
 
         //when
         ParkingTicket parkingTicket = parkingBoy.park(car);
 
         //then
-        assertEquals(car, parkingBoy.fetch(parkingTicket));
+        assertNotNull(parkingTicket);
+        assertEquals(parkingLotList.get(0).fetch(parkingTicket), car);
     }
 }

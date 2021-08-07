@@ -1,31 +1,40 @@
 package com.parkinglot;
 
-import com.parkinglot.Car;
-import com.parkinglot.ParkingLot;
-import com.parkinglot.ParkingTicket;
+import com.exceptions.NoPositionAvailableException;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ParkingBoy {
-    private ParkingLot parkingLot;
-    private List<ParkingLot> parkingLotList;
-    private int parkingLotCount;
+    private List<ParkingLot> parkingLotList = new ArrayList<>();
 
     public ParkingBoy(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
+        parkingLotList.add(parkingLot);
     }
 
     public ParkingBoy(List<ParkingLot> parkingLotList) {
         this.parkingLotList = parkingLotList;
-        this.parkingLotCount = parkingLotList.size();
-        this.parkingLot = parkingLotList.get(0);
     }
 
     public ParkingTicket park(Car car) {
-        return parkingLot.park(car);
+        ParkingLot parkingLotStream = parkingLotList
+                .stream()
+                .filter(this::hasAvailableParkingSpace)
+                .findFirst()
+                .orElseThrow(NoPositionAvailableException::new);
+
+        return parkingLotStream.park(car);
+    }
+
+    private boolean hasAvailableParkingSpace(ParkingLot parkingLot1) {
+        return parkingLot1.getOccupiedCapacity() <= parkingLot1.getCapacity();
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        return parkingLot.fetch(parkingTicket);
+        return Objects.requireNonNull(parkingLotList
+                .stream()
+                .findFirst()
+                .orElse(null)).fetch(parkingTicket);
     }
 }
