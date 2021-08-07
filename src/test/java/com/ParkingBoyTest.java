@@ -1,5 +1,6 @@
 package com;
 
+import com.exceptions.UnrecognizedParkingTicketException;
 import com.parkinglot.Car;
 import com.parkinglot.ParkingBoy;
 import com.parkinglot.ParkingLot;
@@ -56,5 +57,20 @@ class ParkingBoyTest {
         assertEquals(spongeBobCar, actualSpongeBobCar);
         assertEquals(patrickCar, actualPatrickCar);
     }
+
+    @Test
+    public void should_return_nothing_when_fetch_the_car_given_parking_lot_and_a_standard_parking_boy_and_a_wrong_parking_ticket() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingTicket wrongParkingTicket = new ParkingTicket();
+
+        //when && then
+        Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () ->
+                parkingBoy.fetch(wrongParkingTicket));
+        assertEquals("Unrecognized parking ticket.", exception.getMessage());
+
+    }
+
 
 }

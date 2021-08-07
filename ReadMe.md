@@ -12,7 +12,7 @@
     **WHEN** fetch the car twice
     **THEN** return the right car with each ticket
  # [x] Case 4
->   **GIVEN** a parking lot, and a wring parking ticket  
+>   **GIVEN** a parking lot, and a wrong parking ticket  
     **WHEN** fetch the car
     **THEN** return nothing
 # [x] Case 5
@@ -55,4 +55,8 @@
 >   **GIVEN** a parking lot with two parked cars, a standard parking boy, and two parking tickets  
     **WHEN** fetch the car twice
     **THEN** return the right car with each ticket
- 
+
+# [x] Case 4
+>   **GIVEN** a parking lot, a standard parking boy, and a wrong parking ticket  
+    **WHEN** fetch the car  
+    **THEN** return nothing with error message "Unrecognized parking ticket."
