@@ -9,12 +9,19 @@ import java.util.Map;
 public class ParkingLot {
     private final Map<ParkingTicket, Car> parkingTicketCarHashMap = new HashMap<>();
     int capacity = 10;
+    int occupiedCapacity;
 
     public ParkingLot(int capacity) {
         this.capacity = capacity;
     }
 
     public ParkingLot() {
+    }
+
+    public ParkingLot(int capacity, int occupiedCapacity) {
+        this.capacity = capacity;
+        this.occupiedCapacity = occupiedCapacity;
+
     }
 
     public ParkingTicket park(Car car) {
