@@ -23,3 +23,9 @@
 >   **GIVEN** a parking lot without any position, and a car
     **WHEN** park the car
     **THEN** return nothing
+
+#Story 2
+# [ ] Case 1
+   **GIVEN** a parking lot, and an unrecognized ticket  
+    **WHEN** fetch the car  
+    **THEN** return nothing with error message "Unrecognized parking ticket."

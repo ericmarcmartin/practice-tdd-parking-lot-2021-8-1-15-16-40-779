@@ -1,5 +1,7 @@
 package com.parkinglot;
 
+import com.exceptions.UnrecognizedParkingTicketException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,10 +31,17 @@ public class ParkingLot {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
+        if(isUnrecognizedTicket(parkingTicket)) {
+           throw new UnrecognizedParkingTicketException();
+        }
         if (!parkingTicket.isUsed()) {
             parkingTicket.setUsed();
             return parkedPosition.get(parkingTicket);
         }
         return null;
+    }
+
+    private boolean isUnrecognizedTicket(ParkingTicket parkingTicket) {
+        return !parkedPosition.containsKey(parkingTicket);
     }
 }
