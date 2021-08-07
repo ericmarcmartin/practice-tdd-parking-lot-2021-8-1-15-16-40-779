@@ -1,5 +1,6 @@
 package com.parkinglot;
 
+import com.exceptions.NoPositionAvailableException;
 import com.exceptions.UnrecognizedParkingTicketException;
 
 import java.util.HashMap;
@@ -27,7 +28,7 @@ public class ParkingLot {
             occupiedCapacity++;
             return parkingTicket;
         }
-        return null;
+        throw new NoPositionAvailableException();
     }
 
     public Car fetch(ParkingTicket parkingTicket) {

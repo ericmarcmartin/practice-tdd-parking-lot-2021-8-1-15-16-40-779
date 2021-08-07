@@ -26,12 +26,17 @@
 
 #Story 2
 # [x] Case 1
-   **GIVEN** a parking lot, and an unrecognized ticket  
+>   **GIVEN** a parking lot, and an unrecognized ticket  
     **WHEN** fetch the car  
     **THEN** return nothing with error message "Unrecognized parking ticket."
 
 # [x] Case 2
-  **GIVEN** a parking lot, and a used ticket  
-  **WHEN** fetch the car  
-  **THEN** return nothing with error message "Unrecognized parking ticket."
+>   **GIVEN** a parking lot, and a used ticket
+    **WHEN** fetch the car  
+    **THEN** return nothing with error message "Unrecognized parking ticket."
+
+# [x] Case 3
+>   **GIVEN** a parking lot without any position, and a car   
+    **WHEN** park the car  
+    **THEN** return nothing with error message "No available position."
    
