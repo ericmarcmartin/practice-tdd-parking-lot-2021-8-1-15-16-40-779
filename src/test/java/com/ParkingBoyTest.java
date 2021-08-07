@@ -1,6 +1,7 @@
 package com;
 
 import com.parkinglot.Car;
+import com.parkinglot.ParkingBoy;
 import com.parkinglot.ParkingLot;
 import com.parkinglot.ParkingTicket;
 import org.junit.jupiter.api.Test;
@@ -36,4 +37,24 @@ class ParkingBoyTest {
         //then
         assertEquals(car, actualCar);
     }
+
+    @Test
+    public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_parking_lot_with_two_parked_cars_and_a_standard_parking_boy_and_two_tickets() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car spongeBobCar = new Car();
+        Car patrickCar = new Car();
+        ParkingTicket spongeBobParkingTicket = parkingBoy.park(spongeBobCar);
+        ParkingTicket patrickParkingTicket = parkingBoy.park(patrickCar);
+
+        //when
+        Car actualSpongeBobCar = parkingBoy.fetch(spongeBobParkingTicket);
+        Car actualPatrickCar = parkingBoy.fetch(patrickParkingTicket);
+
+        //then
+        assertEquals(spongeBobCar, actualSpongeBobCar);
+        assertEquals(patrickCar, actualPatrickCar);
+    }
+
 }

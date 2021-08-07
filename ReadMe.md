@@ -50,3 +50,9 @@
 >   **GIVEN** a parking lot with a parked car, a standard parking boy, and a parking ticket    
     **WHEN** fetch the car  
     **THEN** return a parked car
+
+# [x] Case 3
+>   **GIVEN** a parking lot with two parked cars, a standard parking boy, and two parking tickets  
+    **WHEN** fetch the car twice
+    **THEN** return the right car with each ticket
+ 

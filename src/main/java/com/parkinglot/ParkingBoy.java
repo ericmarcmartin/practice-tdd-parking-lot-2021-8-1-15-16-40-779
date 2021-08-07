@@ -1,4 +1,4 @@
-package com;
+package com.parkinglot;
 
 import com.parkinglot.Car;
 import com.parkinglot.ParkingLot;
