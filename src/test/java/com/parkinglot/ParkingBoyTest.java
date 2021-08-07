@@ -119,4 +119,22 @@ class ParkingBoyTest {
         assertNotNull(parkingTicket);
         assertEquals(parkingLotList.get(0).fetch(parkingTicket), car);
     }
+
+    @Test
+    public void should_return_car_from_parking_lot_1_when_park_the_car_given_a_standard_parking_boy_where_parking_lot_1_is_full_and_2_has_space_and_a_car() {
+        //given
+        List<ParkingLot> parkingLotList = Arrays.asList(
+                new ParkingLot(2, 2),
+                new ParkingLot(2, 0)
+        );
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
+
+        //when
+        ParkingTicket parkingTicket = parkingBoy.park(car);
+
+        //then
+        assertNotNull(parkingTicket);
+        assertEquals(parkingLotList.get(1).fetch(parkingTicket), car);
+    }
 }

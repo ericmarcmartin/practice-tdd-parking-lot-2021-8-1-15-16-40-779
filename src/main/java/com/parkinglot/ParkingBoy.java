@@ -5,6 +5,7 @@ import com.exceptions.NoPositionAvailableException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class ParkingBoy {
     private List<ParkingLot> parkingLotList = new ArrayList<>();
@@ -18,17 +19,21 @@ public class ParkingBoy {
     }
 
     public ParkingTicket park(Car car) {
-        ParkingLot parkingLotStream = parkingLotList
-                .stream()
-                .filter(this::hasAvailableParkingSpace)
-                .findFirst()
+        Optional<ParkingLot> found = Optional.empty();
+        for (ParkingLot parkingLot : parkingLotList) {
+            if (hasAvailableParkingSpace(parkingLot)) {
+                found = Optional.of(parkingLot);
+                break;
+            }
+        }
+        ParkingLot parkingLotStream = found
                 .orElseThrow(NoPositionAvailableException::new);
 
         return parkingLotStream.park(car);
     }
 
-    private boolean hasAvailableParkingSpace(ParkingLot parkingLot1) {
-        return parkingLot1.getOccupiedCapacity() <= parkingLot1.getCapacity();
+    private boolean hasAvailableParkingSpace(ParkingLot currentParkingLot) {
+        return currentParkingLot.getOccupiedCapacity() < currentParkingLot.getCapacity();
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
