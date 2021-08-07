@@ -12,7 +12,8 @@ class ParkingBoyTest {
     public void should_return_parking_ticket_when_park_the_car_given_parking_lot_and_standard_parking_boy_and_car() {
         //given
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
         //when
         ParkingTicket parkingTicket = parkingBoy.park(car);
