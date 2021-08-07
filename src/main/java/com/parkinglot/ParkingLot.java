@@ -42,6 +42,6 @@ public class ParkingLot {
     }
 
     private boolean isUnrecognizedTicket(ParkingTicket parkingTicket) {
-        return !parkedPosition.containsKey(parkingTicket);
+        return !parkedPosition.containsKey(parkingTicket) || parkingTicket.isUsed();
     }
 }

@@ -31,7 +31,7 @@
     **THEN** return nothing with error message "Unrecognized parking ticket."
 
 # [x] Case 2
-**GIVEN** a parking lot, and a used ticket  
-**WHEN** fetch the car  
-**THEN** return nothing with error message "Unrecognized parking ticket."
+  **GIVEN** a parking lot, and a used ticket  
+  **WHEN** fetch the car  
+  **THEN** return nothing with error message "Unrecognized parking ticket."
    
