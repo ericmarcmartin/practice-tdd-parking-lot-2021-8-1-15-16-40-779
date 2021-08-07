@@ -60,3 +60,10 @@
 >   **GIVEN** a parking lot, a standard parking boy, and a wrong parking ticket  
     **WHEN** fetch the car  
     **THEN** return nothing with error message "Unrecognized parking ticket."
+
+# [x] Case 5
+>   **GIVEN** a parking lot, a standard parking boy, and a used parking ticket
+    **WHEN** fetch the car
+    **THEN** return nothing with error message "Unrecognized parking ticket."
+
+
