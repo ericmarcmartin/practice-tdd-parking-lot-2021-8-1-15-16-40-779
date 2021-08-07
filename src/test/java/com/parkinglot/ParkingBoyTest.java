@@ -103,7 +103,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    public void should_return_car_parked_to_the_first_lot_when_park_the_car_given_a_standard_parking_boy_with_two_parking_lots_both_available_position_and_a_parking_lot_and_car() {
+    public void should_return_car_from_parking_1_when_park_the_car_given_a_standard_parking_boy_with_2_available_parking_lots_and_car() {
         //given
         List<ParkingLot> parkingLotList = Arrays.asList(
                 new ParkingLot(2, 0),
