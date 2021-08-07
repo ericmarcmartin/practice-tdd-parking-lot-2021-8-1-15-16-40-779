@@ -137,4 +137,26 @@ class ParkingBoyTest {
         assertNotNull(parkingTicket);
         assertEquals(parkingLotList.get(1).fetch(parkingTicket), car);
     }
+
+    @Test
+    public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_standard_parking_boy_with_2_parking_lot_both_with_a_parked_car_and_2_ticket() {
+        //given
+        List<ParkingLot> parkingLotList = Arrays.asList(
+                new ParkingLot(2, 1),
+                new ParkingLot(2, 1)
+        );
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
+        Car spongeBobCar = new Car();
+        Car patrickCar = new Car();
+        ParkingTicket spongeBobParkingTicket = parkingBoy.park(spongeBobCar);
+        ParkingTicket patrickParkingTicket = parkingBoy.park(patrickCar);
+
+        //when
+        Car actualSpongeBobCar = parkingBoy.fetch(spongeBobParkingTicket);
+        Car actualPatrickCar = parkingBoy.fetch(patrickParkingTicket);
+
+        //then
+        assertEquals(spongeBobCar, actualSpongeBobCar);
+        assertEquals(patrickCar, actualPatrickCar);
+    }
 }

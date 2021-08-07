@@ -77,10 +77,16 @@
     **WHEN** park the car  
     **THEN** return car parked to the first lot
 
-# [x] Case 1
+# [x] Case 2
 >   **GIVEN** a standard parking boy, who manage two parking lots, first is full and second with available position, and a car  
     **WHEN** park the car  
     **THEN** return car parked to the second lot
+
+# [x] Case 3
+>   **GIVEN** a standard parking boy, who manage two parking lots, both wirh parked car, and two parking ticket 
+    **WHEN** fetch the car twice
+    **THEN** return right car with each ticket
+
 
 
 
