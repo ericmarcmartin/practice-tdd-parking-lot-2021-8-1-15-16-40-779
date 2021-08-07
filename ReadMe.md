@@ -40,7 +40,13 @@
     **WHEN** park the car  
     **THEN** return nothing with error message "No available position."
    
-#Story 4
+#Story 3
+# [x] Case 1
 >   **GIVEN** a parking lot, a standard parking boy, and a car   
-    **WHEN** park the car  
-    **THEN** return a parking ticket
+    **WHEN** park the car   
+    **THEN** return a parking ticket  
+> 
+# [x] Case 2
+>   **GIVEN** a parking lot with a parked car, a standard parking boy, and a parking ticket    
+    **WHEN** fetch the car  
+    **THEN** return a parked car
