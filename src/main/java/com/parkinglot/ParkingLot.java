@@ -65,4 +65,8 @@ public class ParkingLot {
     boolean isUnrecognizedTicket(ParkingTicket parkingTicket) {
         return !parkingTicketCarHashMap.containsKey(parkingTicket);
     }
+
+    public Double getLargerPositionRate() {
+        return (double) (getAvailableCapacity() / capacity);
+    }
 }
