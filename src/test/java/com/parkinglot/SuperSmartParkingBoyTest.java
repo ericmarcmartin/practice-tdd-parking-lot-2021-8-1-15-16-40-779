@@ -36,7 +36,7 @@ class SuperSmartParkingBoyTest {
     }
 
     @Test
-    public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_parking_lot_with_two_parked_cars_and_a_smart_parking_boy_and_two_tickets() {
+    public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_parking_lot_with_two_parked_cars_and_a_super_smart_parking_boy_and_two_tickets() {
         //given
         ParkingLot parkingLot = new ParkingLot();
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLot);
@@ -55,15 +55,31 @@ class SuperSmartParkingBoyTest {
     }
 
     @Test
-    public void should_return_nothing_with_error_message_when_fetch_the_car_given_parking_lot_and_a_smart_parking_boy_and_a_wrong_parking_ticket() {
+    public void should_return_nothing_with_error_message_when_fetch_the_car_given_parking_lot_and_a_super_smart_parking_boy_and_a_wrong_parking_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLot);
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLot);
         ParkingTicket wrongParkingTicket = new ParkingTicket();
 
         //when && then
         Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () ->
-                smartParkingBoy.fetch(wrongParkingTicket));
+                superSmartParkingBoy.fetch(wrongParkingTicket));
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
+    }
+
+    @Test
+    public void should_return_nothing_with_error_message_when_fetch_the_car_given_parking_lot_and_a_super_smart_parking_boy_and_a_used_parking_ticket() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLot);
+        Car car = new Car();
+        ParkingTicket parkingTicket = superSmartParkingBoy.park(car);
+        parkingLot.fetch(parkingTicket);
+
+        //when && then
+        Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () ->
+                parkingLot.fetch(parkingTicket));
+        assertEquals("Unrecognized parking ticket.", exception.getMessage());
+
     }
 }
