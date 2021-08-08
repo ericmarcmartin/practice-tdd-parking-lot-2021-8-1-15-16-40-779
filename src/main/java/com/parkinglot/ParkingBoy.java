@@ -5,7 +5,6 @@ import com.exceptions.NoPositionAvailableException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 public class ParkingBoy {
     private List<ParkingLot> parkingLotList = new ArrayList<>();
@@ -19,14 +18,10 @@ public class ParkingBoy {
     }
 
     public ParkingTicket park(Car car) {
-        Optional<ParkingLot> found = Optional.empty();
-        for (ParkingLot parkingLot : parkingLotList) {
-            if (hasAvailableParkingSpace(parkingLot)) {
-                found = Optional.of(parkingLot);
-                break;
-            }
-        }
-        ParkingLot parkingLotStream = found
+        ParkingLot parkingLotStream = parkingLotList
+                .stream()
+                .filter(this::hasAvailableParkingSpace)
+                .findFirst()
                 .orElseThrow(NoPositionAvailableException::new);
 
         return parkingLotStream.park(car);
