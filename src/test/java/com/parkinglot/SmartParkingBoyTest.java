@@ -156,7 +156,7 @@ class SmartParkingBoyTest {
     }
 
     @Test
-    public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_smart_parking_boy_with_2_parking_lot_both_with_a_parked_car_and_2_ticket() {
+    public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_smart_parking_boy_with_2_parking_lot_both_with_a_parked_car_and_2_tickets() {
         //given
         List<ParkingLot> parkingLotList = Arrays.asList(
                 new ParkingLot(5),
