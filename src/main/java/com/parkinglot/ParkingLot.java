@@ -43,7 +43,7 @@ public class ParkingLot {
         return parkingTicket;
     }
 
-    private boolean parkingLotIsNotFull() {
+    public boolean parkingLotIsNotFull() {
         return parkingTicketCarHashMap.size() < capacity;
     }
 

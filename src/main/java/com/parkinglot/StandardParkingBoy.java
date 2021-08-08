@@ -1,6 +1,8 @@
 package com.parkinglot;
 
 import com.exceptions.NoPositionAvailableException;
+import com.parkingLotApproach.ParkingApproach;
+import com.parkingLotApproach.StandardParkingBoyApproach;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.Objects;
 
 public class StandardParkingBoy {
     private List<ParkingLot> parkingLotList = new ArrayList<>();
+    public ParkingApproach parkingApproach = new StandardParkingBoyApproach();
 
     public StandardParkingBoy(ParkingLot parkingLot) {
         parkingLotList.add(parkingLot);
@@ -18,17 +21,8 @@ public class StandardParkingBoy {
     }
 
     public ParkingTicket park(Car car) {
-        ParkingLot parkingLotStream = parkingLotList
-                .stream()
-                .filter(this::hasAvailableParkingSpace)
-                .findFirst()
-                .orElseThrow(NoPositionAvailableException::new);
-
-        return parkingLotStream.park(car);
-    }
-
-    private boolean hasAvailableParkingSpace(ParkingLot currentParkingLot) {
-        return currentParkingLot.getOccupiedCapacity() < currentParkingLot.getCapacity();
+        ParkingLot parkingLot = parkingApproach.retrieveParkingLotFromList(parkingLotList);
+        return parkingLot.park(car);
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
