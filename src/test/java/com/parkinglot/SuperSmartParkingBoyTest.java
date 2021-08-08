@@ -166,15 +166,15 @@ class SuperSmartParkingBoyTest {
                 new ParkingLot(5),
                 new ParkingLot(5)
         );
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLotList);
         Car spongeBobCar = new Car();
         Car patrickCar = new Car();
-        ParkingTicket spongeBobParkingTicket = smartParkingBoy.park(spongeBobCar);
-        ParkingTicket patrickParkingTicket = smartParkingBoy.park(patrickCar);
+        ParkingTicket spongeBobParkingTicket = superSmartParkingBoy.park(spongeBobCar);
+        ParkingTicket patrickParkingTicket = superSmartParkingBoy.park(patrickCar);
 
         //when
-        Car actualSpongeBobCar = smartParkingBoy.fetch(spongeBobParkingTicket);
-        Car actualPatrickCar = smartParkingBoy.fetch(patrickParkingTicket);
+        Car actualSpongeBobCar = superSmartParkingBoy.fetch(spongeBobParkingTicket);
+        Car actualPatrickCar = superSmartParkingBoy.fetch(patrickParkingTicket);
 
         //then
         assertEquals(spongeBobCar, actualSpongeBobCar);
