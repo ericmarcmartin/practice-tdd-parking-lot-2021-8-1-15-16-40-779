@@ -4,6 +4,9 @@ import com.exceptions.NoPositionAvailableException;
 import com.exceptions.UnrecognizedParkingTicketException;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SuperSmartParkingBoyTest {
@@ -96,5 +99,23 @@ class SuperSmartParkingBoyTest {
         Exception exception = assertThrows(NoPositionAvailableException.class, () ->
                 superSmartParkingBoy.park(car));
         assertEquals("No available position.", exception.getMessage());
+    }
+
+    @Test
+    public void should_return_car_from_parking_1_when_park_the_car_given_a_super_smart_parking_boy_with_2_available_parking_lots_and_car() {
+        //given
+        List<ParkingLot> parkingLotList = Arrays.asList(
+                new ParkingLot(2),
+                new ParkingLot(2)
+        );
+        Car car = new Car();
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLotList);
+
+        //when
+        ParkingTicket parkingTicket = superSmartParkingBoy.park(car);
+
+        //then
+        assertNotNull(parkingTicket);
+        assertEquals(car, parkingLotList.get(0).fetch(parkingTicket));
     }
 }
