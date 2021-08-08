@@ -25,7 +25,7 @@ class StandardParkingBoyTest {
     }
 
     @Test
-    public void should_return_a_parked_car_when_fetch_the_car_given_parking_lot_with_a_parked_car_and_standard_parking_boy_and_a_ticket() {
+    public void should_return_parked_car_when_fetch_the_car_given_parking_lot_with_parked_car_and_standard_parking_boy_and_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot();
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
@@ -40,7 +40,7 @@ class StandardParkingBoyTest {
     }
 
     @Test
-    public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_parking_lot_with_two_parked_cars_and_a_standard_parking_boy_and_two_tickets() {
+    public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_parking_lot_with_2_parked_cars_and_standard_parking_boy_and_2_tickets() {
         //given
         ParkingLot parkingLot = new ParkingLot();
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
@@ -59,7 +59,7 @@ class StandardParkingBoyTest {
     }
 
     @Test
-    public void should_return_nothing_with_error_message_when_fetch_the_car_given_parking_lot_and_a_standard_parking_boy_and_a_wrong_parking_ticket() {
+    public void should_return_nothing_with_error_message_when_fetch_the_car_given_parking_lot_and_standard_parking_boy_and_wrong_parking_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot();
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
@@ -73,7 +73,7 @@ class StandardParkingBoyTest {
     }
 
     @Test
-    public void should_return_nothing_with_error_message_when_fetch_the_car_given_parking_lot_and_standard_parking_boy_and_a_used_parking_ticket() {
+    public void should_return_nothing_with_error_message_when_fetch_the_car_given_parking_lot_and_standard_parking_boy_and_used_parking_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot();
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
@@ -89,7 +89,7 @@ class StandardParkingBoyTest {
     }
 
     @Test
-    public void should_return_nothing_with_error_message_when_park_the_car_given_parking_lot_without_any_position_and_a_parking_boy_and_a_car() {
+    public void should_return_nothing_with_error_message_when_park_the_car_given_parking_lot_without_any_position_and_parking_boy_and_car() {
         //given
         ParkingLot parkingLot = new ParkingLot(1);
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
@@ -103,7 +103,7 @@ class StandardParkingBoyTest {
     }
 
     @Test
-    public void should_return_car_from_parking_1_when_park_the_car_given_a_standard_parking_boy_with_2_available_parking_lots_and_car() {
+    public void should_return_car_from_parking_1_when_park_the_car_given_standard_parking_boy_with_2_available_parking_lots_and_car() {
         //given
         List<ParkingLot> parkingLotList = Arrays.asList(
                 new ParkingLot(2),
@@ -121,7 +121,7 @@ class StandardParkingBoyTest {
     }
 
     @Test
-    public void should_return_car_from_parking_lot_2_when_park_the_car_given_a_standard_parking_boy_where_parking_lot_1_is_full_and_2_has_space_and_a_car() {
+    public void should_return_car_from_parking_lot_2_when_park_the_car_given_standard_parking_boy_where_parking_lot_1_is_full_and_2_has_space_and_car() {
         //given
         Car car = new Car();
         List<ParkingLot> parkingLotList = Arrays.asList(
@@ -141,7 +141,7 @@ class StandardParkingBoyTest {
     }
 
     @Test
-    public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_standard_parking_boy_with_2_parking_lot_both_with_a_parked_car_and_2_ticket() {
+    public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_standard_parking_boy_with_2_parking_lot_both_with_parked_car_and_2_ticket() {
         //given
         List<ParkingLot> parkingLotList = Arrays.asList(
                 new ParkingLot(2),
@@ -180,7 +180,7 @@ class StandardParkingBoyTest {
     }
 
     @Test
-    public void should_return_nothing_with_error_message_when_fetch_the_car_given_standard_parking_boy_with_2_parking_lots_and_a_used_ticket() {
+    public void should_return_nothing_with_error_message_when_fetch_the_car_given_standard_parking_boy_with_2_parking_lots_and_used_ticket() {
         //given
         List<ParkingLot> parkingLotList = Arrays.asList(
                 new ParkingLot(2),
