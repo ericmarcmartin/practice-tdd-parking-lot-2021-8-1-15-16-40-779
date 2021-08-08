@@ -15,6 +15,10 @@ public class SmartParkingBoy {
 
     }
 
+    public SmartParkingBoy(List<ParkingLot> parkingLotList) {
+        this.parkingLotList = parkingLotList;
+    }
+
     public ParkingTicket park(Car car) {
         ParkingLot parkingLotStream = parkingLotList
                 .stream()
