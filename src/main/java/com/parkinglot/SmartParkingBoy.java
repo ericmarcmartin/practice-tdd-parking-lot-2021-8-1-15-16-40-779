@@ -4,6 +4,7 @@ import com.exceptions.NoPositionAvailableException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class SmartParkingBoy {
 
@@ -26,5 +27,12 @@ public class SmartParkingBoy {
 
     private boolean hasAvailableParkingSpace(ParkingLot currentParkingLot) {
         return currentParkingLot.getOccupiedCapacity() < currentParkingLot.getCapacity();
+    }
+
+    public Car fetch(ParkingTicket parkingTicket) {
+        return Objects.requireNonNull(parkingLotList
+                .stream()
+                .findFirst()
+                .orElse(null)).fetch(parkingTicket);
     }
 }
