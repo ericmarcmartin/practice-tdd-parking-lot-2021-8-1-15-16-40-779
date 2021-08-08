@@ -120,15 +120,32 @@ class SmartParkingBoyTest {
     }
 
     @Test
-    public void should_return_car_from_parking_lot_2_when_park_the_car_given_a_smart_parking_boy_where_parking_lot_2_has_more_space_and_a_car() {
+    public void should_return_car_from_parking_lot_1_when_park_the_car_given_a_smart_parking_boy_where_parking_lot_1_has_more_space_and_a_car() {
         //given
         Car car = new Car();
         List<ParkingLot> parkingLotList = Arrays.asList(
                 new ParkingLot(5),
+                new ParkingLot(2)
+        );
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
+
+        //when
+        ParkingTicket parkingTicket = smartParkingBoy.park(car);
+
+        //then
+        assertNotNull(parkingTicket);
+        assertEquals(car, parkingLotList.get(0).fetch(parkingTicket));
+    }
+
+    @Test
+    public void should_return_car_from_parking_lot_2_when_park_the_car_given_a_smart_parking_boy_where_parking_lot_2_has_more_space_and_a_car() {
+        //given
+        Car car = new Car();
+        List<ParkingLot> parkingLotList = Arrays.asList(
+                new ParkingLot(2),
                 new ParkingLot(5)
         );
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
-        smartParkingBoy.park(new Car());
 
         //when
         ParkingTicket parkingTicket = smartParkingBoy.park(car);
@@ -137,5 +154,4 @@ class SmartParkingBoyTest {
         assertNotNull(parkingTicket);
         assertEquals(car, parkingLotList.get(1).fetch(parkingTicket));
     }
-
 }
