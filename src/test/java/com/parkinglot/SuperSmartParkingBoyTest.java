@@ -134,6 +134,24 @@ class SuperSmartParkingBoyTest {
 
         //then
         assertNotNull(parkingTicket);
+        assertEquals(car, parkingLotList.get(0).fetch(parkingTicket));
+    }
+
+    @Test
+    public void should_return_car_from_parking_lot_2_when_park_the_car_given_a_super_smart_parking_boy_where_parking_lot_2_has_larger_available_position_rate_and_a_car() {
+        //given
+        Car car = new Car();
+        List<ParkingLot> parkingLotList = Arrays.asList(
+                new ParkingLot(2),
+                new ParkingLot(25)
+        );
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
+
+        //when
+        ParkingTicket parkingTicket = smartParkingBoy.park(car);
+
+        //then
+        assertNotNull(parkingTicket);
         assertEquals(car, parkingLotList.get(1).fetch(parkingTicket));
     }
 
