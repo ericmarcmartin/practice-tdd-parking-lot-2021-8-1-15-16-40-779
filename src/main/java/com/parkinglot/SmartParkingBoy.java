@@ -4,7 +4,7 @@ import com.parkingLotApproach.SmartParkingBoyApproach;
 
 import java.util.List;
 
-public class SmartParkingBoy extends StandardParkingBoy{
+public class SmartParkingBoy extends StandardParkingBoy {
     public SmartParkingBoy(ParkingLot parkingLot) {
         super(parkingLot);
 

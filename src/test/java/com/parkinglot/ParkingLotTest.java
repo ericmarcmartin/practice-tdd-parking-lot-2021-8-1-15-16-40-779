@@ -1,6 +1,7 @@
 package com.parkinglot;
 
-import com.exceptions.*;
+import com.exceptions.NoPositionAvailableException;
+import com.exceptions.UnrecognizedParkingTicketException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -81,7 +82,7 @@ class ParkingLotTest {
     }
 
     @Test
-    public void should_return_nothing_when_park_the_car_given_parking_lot_without_any_position_and_a_car(){
+    public void should_return_nothing_when_park_the_car_given_parking_lot_without_any_position_and_a_car() {
         //given
         ParkingLot parkingLot = new ParkingLot(1);
         parkingLot.park(new Car());
@@ -94,7 +95,7 @@ class ParkingLotTest {
     }
 
     @Test
-    public void should_throw_exception_with_error_message_when_fetch_the_car_given_parking_lot_and_unrecognized_ticket(){
+    public void should_throw_exception_with_error_message_when_fetch_the_car_given_parking_lot_and_unrecognized_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot(1);
         ParkingTicket unrecognizedParkingTicket = new ParkingTicket();
@@ -106,7 +107,7 @@ class ParkingLotTest {
     }
 
     @Test
-    public void should_throw_exception_with_error_message_when_fetch_the_car_given_parking_lot_and_used_ticket(){
+    public void should_throw_exception_with_error_message_when_fetch_the_car_given_parking_lot_and_used_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot(1);
         ParkingTicket parkingTicket = parkingLot.park(new Car());
@@ -119,7 +120,7 @@ class ParkingLotTest {
     }
 
     @Test
-    public void should_throw_exception_with_error_message_when_park_the_car_given_parking_lot_without_any_position_and_a_car(){
+    public void should_throw_exception_with_error_message_when_park_the_car_given_parking_lot_without_any_position_and_a_car() {
         //given
         ParkingLot parkingLot = new ParkingLot(1);
         parkingLot.park(new Car());

@@ -33,6 +33,7 @@ public class ParkingLot {
 
     public ParkingTicket park(Car car) {
         if (parkingLotIsNotFull()) return getParkingTicket(car);
+
         throw new NoPositionAvailableException();
     }
 

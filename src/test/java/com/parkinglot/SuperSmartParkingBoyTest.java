@@ -2,7 +2,6 @@ package com.parkinglot;
 
 import com.exceptions.NoPositionAvailableException;
 import com.exceptions.UnrecognizedParkingTicketException;
-import com.parkingLotApproach.SuperSmartParkingBoyApproach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

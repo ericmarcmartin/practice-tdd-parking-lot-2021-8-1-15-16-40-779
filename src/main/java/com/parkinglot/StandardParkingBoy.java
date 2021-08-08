@@ -6,7 +6,6 @@ import com.parkingLotApproach.StandardParkingBoyApproach;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class StandardParkingBoy {
     private List<ParkingLot> parkingLotList = new ArrayList<>();
@@ -22,15 +21,16 @@ public class StandardParkingBoy {
 
     public ParkingTicket park(Car car) {
         ParkingLot parkingLot = parkingApproach.retrieveParkingLotFromList(parkingLotList);
+
         return parkingLot.park(car);
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        return Objects.requireNonNull(parkingLotList
+        return parkingLotList
                 .stream()
                 .filter(parkingLot -> isRecognizedTicket(parkingTicket, parkingLot))
                 .findFirst()
-                .orElseThrow(UnrecognizedParkingTicketException::new))
+                .orElseThrow(UnrecognizedParkingTicketException::new)
                 .fetch(parkingTicket);
     }
 

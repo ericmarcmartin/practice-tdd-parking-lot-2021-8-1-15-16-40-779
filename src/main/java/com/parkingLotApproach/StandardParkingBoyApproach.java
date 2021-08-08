@@ -10,7 +10,8 @@ public class StandardParkingBoyApproach implements ParkingApproach{
     public ParkingLot retrieveParkingLotFromList(List<ParkingLot> parkingLotList) {
         return parkingLotList
                 .stream()
-                .filter(ParkingLot::parkingLotIsNotFull).findFirst().orElseThrow(
-                NoPositionAvailableException::new);
+                .filter(ParkingLot::parkingLotIsNotFull)
+                .findFirst()
+                .orElseThrow(NoPositionAvailableException::new);
     }
 }
