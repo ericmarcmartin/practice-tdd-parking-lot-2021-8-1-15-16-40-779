@@ -9,10 +9,9 @@ import java.util.Map;
 public class ParkingLot {
     private final Map<ParkingTicket, Car> parkingTicketCarHashMap = new HashMap<>();
     int capacity = 10;
-    int occupiedCapacity = 0;
 
     public int getOccupiedCapacity() {
-        return occupiedCapacity;
+        return parkingTicketCarHashMap.size();
     }
 
     public int getCapacity() {
@@ -34,7 +33,6 @@ public class ParkingLot {
     private ParkingTicket getParkingTicket(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket();
         parkingTicketCarHashMap.put(parkingTicket, car);
-        occupiedCapacity++;
 
         return parkingTicket;
     }
@@ -47,13 +45,13 @@ public class ParkingLot {
         if (isUnrecognizedTicket(parkingTicket)) {
             throw new UnrecognizedParkingTicketException();
         }
+
         return getCarWithMatch(parkingTicket);
     }
 
     private Car getCarWithMatch(ParkingTicket parkingTicket) {
-        Car matchedCar = parkingTicketCarHashMap.get(parkingTicket);;
+        Car matchedCar = parkingTicketCarHashMap.get(parkingTicket);
         parkingTicketCarHashMap.remove(parkingTicket);
-        occupiedCapacity--;
 
         return matchedCar;
     }
