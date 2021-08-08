@@ -66,7 +66,7 @@ public class ParkingLot {
         return !parkingTicketCarHashMap.containsKey(parkingTicket);
     }
 
-    public Double getLargerPositionRate() {
-        return (double) (getAvailableCapacity() / capacity);
+    public double getPositionRate() {
+        return (getAvailableCapacity() * 1.0 / capacity);
     }
 }

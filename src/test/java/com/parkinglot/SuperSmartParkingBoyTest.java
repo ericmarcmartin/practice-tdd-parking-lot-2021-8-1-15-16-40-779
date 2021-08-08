@@ -2,6 +2,7 @@ package com.parkinglot;
 
 import com.exceptions.NoPositionAvailableException;
 import com.exceptions.UnrecognizedParkingTicketException;
+import com.parkingLotApproach.SuperSmartParkingBoyApproach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -127,10 +128,12 @@ class SuperSmartParkingBoyTest {
                 new ParkingLot(5),
                 new ParkingLot(2)
         );
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLotList);
+        superSmartParkingBoy.park(new Car());
+        superSmartParkingBoy.park(new Car());
 
         //when
-        ParkingTicket parkingTicket = smartParkingBoy.park(car);
+        ParkingTicket parkingTicket = superSmartParkingBoy.park(car);
 
         //then
         assertNotNull(parkingTicket);
@@ -145,14 +148,37 @@ class SuperSmartParkingBoyTest {
                 new ParkingLot(2),
                 new ParkingLot(25)
         );
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLotList);
+        superSmartParkingBoy.park(new Car());
 
         //when
-        ParkingTicket parkingTicket = smartParkingBoy.park(car);
+        ParkingTicket parkingTicket = superSmartParkingBoy.park(car);
 
         //then
         assertNotNull(parkingTicket);
         assertEquals(car, parkingLotList.get(1).fetch(parkingTicket));
+    }
+
+    @Test
+    public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_super_smart_parking_boy_with_2_parking_lot_both_with_a_parked_car_and_2_tickets() {
+        //given
+        List<ParkingLot> parkingLotList = Arrays.asList(
+                new ParkingLot(5),
+                new ParkingLot(5)
+        );
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
+        Car spongeBobCar = new Car();
+        Car patrickCar = new Car();
+        ParkingTicket spongeBobParkingTicket = smartParkingBoy.park(spongeBobCar);
+        ParkingTicket patrickParkingTicket = smartParkingBoy.park(patrickCar);
+
+        //when
+        Car actualSpongeBobCar = smartParkingBoy.fetch(spongeBobParkingTicket);
+        Car actualPatrickCar = smartParkingBoy.fetch(patrickParkingTicket);
+
+        //then
+        assertEquals(spongeBobCar, actualSpongeBobCar);
+        assertEquals(patrickCar, actualPatrickCar);
     }
 
 }
