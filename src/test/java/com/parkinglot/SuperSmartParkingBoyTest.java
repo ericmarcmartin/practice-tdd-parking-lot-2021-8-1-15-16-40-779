@@ -197,4 +197,22 @@ class SuperSmartParkingBoyTest {
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
 
     }
+
+    @Test
+    public void should_return_nothing_with_error_message_when_fetch_the_car_given_super_smart_parking_boy_with_2_parking_lots_and_a_used_ticket() {
+        //given
+        List<ParkingLot> parkingLotList = Arrays.asList(
+                new ParkingLot(2),
+                new ParkingLot(2)
+        );
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLotList);
+        Car car = new Car();
+        ParkingTicket parkingTicket = superSmartParkingBoy.park(car);
+        superSmartParkingBoy.fetch(parkingTicket);
+
+        //when && then
+        Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () ->
+                superSmartParkingBoy.fetch(parkingTicket));
+        assertEquals("Unrecognized parking ticket.", exception.getMessage());
+    }
 }
