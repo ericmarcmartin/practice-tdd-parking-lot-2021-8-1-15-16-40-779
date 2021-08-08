@@ -1,6 +1,6 @@
 package com.parkinglot;
 
-import com.exceptions.NoPositionAvailableException;
+import com.exceptions.UnrecognizedParkingTicketException;
 import com.parkingLotApproach.ParkingApproach;
 import com.parkingLotApproach.StandardParkingBoyApproach;
 
@@ -28,7 +28,13 @@ public class StandardParkingBoy {
     public Car fetch(ParkingTicket parkingTicket) {
         return Objects.requireNonNull(parkingLotList
                 .stream()
+                .filter(parkingLot -> isRecognizedTicket(parkingTicket, parkingLot))
                 .findFirst()
-                .orElse(null)).fetch(parkingTicket);
+                .orElseThrow(UnrecognizedParkingTicketException::new))
+                .fetch(parkingTicket);
+    }
+
+    private boolean isRecognizedTicket(ParkingTicket parkingTicket, ParkingLot parkingLot) {
+        return !parkingLot.isUnrecognizedTicket(parkingTicket);
     }
 }

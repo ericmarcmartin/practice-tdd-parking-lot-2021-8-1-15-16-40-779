@@ -62,7 +62,7 @@ public class ParkingLot {
         return matchedCar;
     }
 
-    private boolean isUnrecognizedTicket(ParkingTicket parkingTicket) {
+    boolean isUnrecognizedTicket(ParkingTicket parkingTicket) {
         return !parkingTicketCarHashMap.containsKey(parkingTicket);
     }
 }
