@@ -55,12 +55,13 @@ public class ParkingLot {
     }
 
     private Car getCarWithMatch(ParkingTicket parkingTicket) {
-        parkingTicket.setUsed();
+        Car matchedCar = parkingTicketCarHashMap.get(parkingTicket);;
+        parkingTicketCarHashMap.remove(parkingTicket);
 
-        return parkingTicketCarHashMap.get(parkingTicket);
+        return matchedCar;
     }
 
     private boolean isUnrecognizedTicket(ParkingTicket parkingTicket) {
-        return !parkingTicketCarHashMap.containsKey(parkingTicket) || parkingTicket.isUsed();
+        return !parkingTicketCarHashMap.containsKey(parkingTicket);
     }
 }
