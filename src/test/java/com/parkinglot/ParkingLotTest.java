@@ -36,7 +36,7 @@ class ParkingLotTest {
     }
 
     @Test
-    public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_parking_lot_with_two_parked_cars_and_two_tickets() {
+    public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_parking_lot_with_2_parked_cars_and_2_tickets() {
         //given
         ParkingLot parkingLot = new ParkingLot();
         Car spongeBobCar = new Car();
