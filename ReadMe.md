@@ -102,3 +102,8 @@
     **WHEN** park the car  
     **THEN** return nothing with error message "No available position."  
 
+#Story 5
+# [x] Case 1
+>   **GIVEN** a standard parking boy, who manage two parking lots, both without any position  
+    **WHEN** park the car  
+    **THEN** return nothing with error message "No available position."  
