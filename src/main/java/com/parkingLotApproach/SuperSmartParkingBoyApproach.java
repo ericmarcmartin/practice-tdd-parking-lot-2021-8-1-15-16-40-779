@@ -9,8 +9,9 @@ import java.util.List;
 public class SuperSmartParkingBoyApproach implements ParkingApproach{
     @Override
     public ParkingLot retrieveParkingLotFromList(List<ParkingLot> parkingLotList) {
-        return parkingLotList.stream()
-                .max(Comparator.comparingDouble(ParkingLot::getLargerPositionRate))
+        return parkingLotList
+                .stream()
+                .max(Comparator.comparingDouble(ParkingLot::getPositionRate))
                 .orElseThrow(NoPositionAvailableException::new);
     }
 }

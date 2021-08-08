@@ -8,8 +8,9 @@ import java.util.List;
 public class StandardParkingBoyApproach implements ParkingApproach{
     @Override
     public ParkingLot retrieveParkingLotFromList(List<ParkingLot> parkingLotList) {
-        return parkingLotList.stream().
-                filter(ParkingLot::parkingLotIsNotFull).findFirst().orElseThrow(
+        return parkingLotList
+                .stream()
+                .filter(ParkingLot::parkingLotIsNotFull).findFirst().orElseThrow(
                 NoPositionAvailableException::new);
     }
 }

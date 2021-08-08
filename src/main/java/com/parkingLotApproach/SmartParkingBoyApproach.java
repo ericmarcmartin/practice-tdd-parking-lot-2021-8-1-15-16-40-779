@@ -9,7 +9,8 @@ import java.util.List;
 public class SmartParkingBoyApproach implements ParkingApproach {
     @Override
     public ParkingLot retrieveParkingLotFromList(List<ParkingLot> parkingLotList) {
-        return parkingLotList.stream()
+        return parkingLotList
+                .stream()
                 .max(Comparator.comparingInt(ParkingLot::getAvailableCapacity))
                 .orElseThrow(NoPositionAvailableException::new);
     }
