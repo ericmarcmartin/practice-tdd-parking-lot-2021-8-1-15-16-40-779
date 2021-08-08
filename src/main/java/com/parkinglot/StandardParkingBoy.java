@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ParkingBoy {
+public class StandardParkingBoy {
     private List<ParkingLot> parkingLotList = new ArrayList<>();
 
-    public ParkingBoy(ParkingLot parkingLot) {
+    public StandardParkingBoy(ParkingLot parkingLot) {
         parkingLotList.add(parkingLot);
     }
 
-    public ParkingBoy(List<ParkingLot> parkingLotList) {
+    public StandardParkingBoy(List<ParkingLot> parkingLotList) {
         this.parkingLotList = parkingLotList;
     }
 
