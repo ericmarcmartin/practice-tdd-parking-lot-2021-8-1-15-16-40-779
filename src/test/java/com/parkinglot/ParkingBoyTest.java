@@ -106,8 +106,8 @@ class ParkingBoyTest {
     public void should_return_car_from_parking_1_when_park_the_car_given_a_standard_parking_boy_with_2_available_parking_lots_and_car() {
         //given
         List<ParkingLot> parkingLotList = Arrays.asList(
-                new ParkingLot(2, 0),
-                new ParkingLot(2, 0)
+                new ParkingLot(2),
+                new ParkingLot(2)
         );
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
@@ -121,14 +121,16 @@ class ParkingBoyTest {
     }
 
     @Test
-    public void should_return_car_from_parking_lot_1_when_park_the_car_given_a_standard_parking_boy_where_parking_lot_1_is_full_and_2_has_space_and_a_car() {
+    public void should_return_car_from_parking_lot_2_when_park_the_car_given_a_standard_parking_boy_where_parking_lot_1_is_full_and_2_has_space_and_a_car() {
         //given
-        List<ParkingLot> parkingLotList = Arrays.asList(
-                new ParkingLot(2, 2),
-                new ParkingLot(2, 0)
-        );
         Car car = new Car();
+        List<ParkingLot> parkingLotList = Arrays.asList(
+                new ParkingLot(1),
+                new ParkingLot(1)
+        );
         ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
+        parkingBoy.park(new Car());
+
 
         //when
         ParkingTicket parkingTicket = parkingBoy.park(car);
@@ -142,8 +144,8 @@ class ParkingBoyTest {
     public void should_return_right_car_with_each_ticket_when_fetch_the_car_twice_given_standard_parking_boy_with_2_parking_lot_both_with_a_parked_car_and_2_ticket() {
         //given
         List<ParkingLot> parkingLotList = Arrays.asList(
-                new ParkingLot(2, 1),
-                new ParkingLot(2, 1)
+                new ParkingLot(2),
+                new ParkingLot(2)
         );
         ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
         Car spongeBobCar = new Car();
@@ -164,8 +166,8 @@ class ParkingBoyTest {
     public void should_return_nothing_with_error_message_when_fetch_the_car_given_standard_parking_boy_with_2_parking_lots_and_an_unrecognized_ticket() {
         //given
         List<ParkingLot> parkingLotList = Arrays.asList(
-                new ParkingLot(2, 1),
-                new ParkingLot(2, 1)
+                new ParkingLot(2),
+                new ParkingLot(2)
         );
         ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
         ParkingTicket wrongParkingTicket = new ParkingTicket();
@@ -181,8 +183,8 @@ class ParkingBoyTest {
     public void should_return_nothing_with_error_message_when_fetch_the_car_given_standard_parking_boy_with_2_parking_lots_and_a_used_ticket() {
         //given
         List<ParkingLot> parkingLotList = Arrays.asList(
-                new ParkingLot(2, 1),
-                new ParkingLot(2, 1)
+                new ParkingLot(2),
+                new ParkingLot(2)
         );
         ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
         Car car = new Car();
@@ -199,11 +201,13 @@ class ParkingBoyTest {
     public void should_return_nothing_with_error_message_when_park_the_car_given_standard_parking_boy_with_2_fully_occupied_parking_lots() {
         //given
         List<ParkingLot> parkingLotList = Arrays.asList(
-                new ParkingLot(2, 2),
-                new ParkingLot(2, 2)
+                new ParkingLot(1),
+                new ParkingLot(1)
         );
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
+        parkingBoy.park(new Car());
+        parkingBoy.park(new Car());
 
         //when && then
         Exception exception = assertThrows(NoPositionAvailableException.class, () ->

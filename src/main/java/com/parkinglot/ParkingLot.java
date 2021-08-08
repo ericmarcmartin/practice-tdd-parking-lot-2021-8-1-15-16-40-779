@@ -26,11 +26,6 @@ public class ParkingLot {
         this.capacity = capacity;
     }
 
-    public ParkingLot(int capacity, int occupiedCapacity) {
-        this.capacity = capacity;
-        this.occupiedCapacity = occupiedCapacity;
-    }
-
     public ParkingTicket park(Car car) {
         if (parkingLotIsNotFull()) return getParkingTicket(car);
         throw new NoPositionAvailableException();
@@ -39,6 +34,7 @@ public class ParkingLot {
     private ParkingTicket getParkingTicket(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket();
         parkingTicketCarHashMap.put(parkingTicket, car);
+        occupiedCapacity++;
 
         return parkingTicket;
     }
@@ -57,6 +53,7 @@ public class ParkingLot {
     private Car getCarWithMatch(ParkingTicket parkingTicket) {
         Car matchedCar = parkingTicketCarHashMap.get(parkingTicket);;
         parkingTicketCarHashMap.remove(parkingTicket);
+        occupiedCapacity--;
 
         return matchedCar;
     }
