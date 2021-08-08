@@ -167,3 +167,68 @@
     **WHEN** park the car  
     **THEN** return nothing with error message "No available position."
 
+#Story 6
+# [x] Case 1
+>   **GIVEN** a super smart parking boy, a parking lot, and a car  
+    **WHEN** park the car  
+    **THEN** return parking ticket
+>
+# [x] Case 2
+>   **GIVEN** a super smart parking boy, a parking lot with parked car, and a ticket  
+    **WHEN** fetch the car  
+    **THEN** return the parked car
+>
+# [x] Case 3
+>   **GIVEN** a super smart parking boy, a parking lot with two parked cars, and a two parking tickets  
+    **WHEN** fetch the car twice  
+    **THEN** return the right car with each ticket
+>
+# [x] Case 4
+>   **GIVEN** a super smart parking boy,  a parking lot, and a wrong parking ticket   
+    **WHEN** fetch the car  
+    **THEN** return nothing
+>
+# [x] Case 5
+>   **GIVEN** a super smart parking boy, a parking lot, and a used parking ticket  
+    **WHEN** fetch the car  
+    **THEN** return nothing
+# [x] Case 6
+>   **GIVEN** a super smart parking boy, a parking lot without any position, and a car  
+    **WHEN** park the car  
+    **THEN** return nothing
+
+# [x] Case 7
+>   **GIVEN** a super smart parking boy, 2 available parking lots, and a car  
+    **WHEN** park the car  
+    **THEN** return car from parking 1
+
+# [x] Case 8
+>   **GIVEN** a super smart parking boy, 2 parking lot where parking lot 1 has larger available position rate, and a car  
+    **WHEN** park the car  
+    **THEN** return car from parking 1
+
+# [x] Case 9
+>   **GIVEN** a super smart parking boy, 2 parking lot where parking lot 2 has larger available position rate, and a car  
+    **WHEN** park the car  
+    **THEN** return car from parking 2
+
+# [x] Case 10
+>   **GIVEN** a super smart parking boy, 2 parking lot both with parked cars, and 2 tickets  
+    **WHEN** fetch the car  
+    **THEN** return right car with each ticket
+
+# [x] Case 11
+>   **GIVEN** a super smart parking boy, who manage two parking lots, and unrecognized parking ticket  
+    **WHEN** fetch the car twice  
+    **THEN** return nothing with error message "Unrecognized parking ticket."
+
+# [x] Case 12
+>   **GIVEN** a super smart parking boy, who manage two parking lots, and a used parking ticket  
+    **WHEN** fetch the car twice  
+    **THEN** return nothing with error message "Unrecognized parking ticket."
+
+# [x] Case 13
+>   **GIVEN** a super smart parking boy, who manage two parking lots, both without any position  
+    **WHEN** park the car  
+    **THEN** return nothing with error message "No available position."
+
